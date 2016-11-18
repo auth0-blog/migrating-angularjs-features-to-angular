@@ -17,6 +17,5 @@ export class Cmpt2Component implements OnInit {
   constructor(private counter: CounterService) { }
 
   ngOnInit() {
-
   }
 }
