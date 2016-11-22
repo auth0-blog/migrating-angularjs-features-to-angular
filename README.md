@@ -1,6 +1,8 @@
 # Migrating Angular 1 Features to Angular 2
 
-This repository contains Angular 2 code samples for the following feature implementations:
+This repository contains Angular 2 code samples for [Get Angular 1 Features in Angular 2](https://scotch.io/tutorials/get-angular-1-features-in-angular-2).
+
+It includes the following feature implementations:
 
 * [Parent-to-child component communication](https://github.com/auth0-blog/migrating-angular-features-to-angular2/tree/master/parent-to-child-component-communication)
 * [Child-to-parent component communication](https://github.com/auth0-blog/migrating-angular-features-to-angular2/tree/master/child-to-parent-component-communication)
