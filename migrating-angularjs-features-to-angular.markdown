@@ -26,7 +26,7 @@ We'll address several features that many real-world Angular apps require:
 * [Router events](#router-events)
 * [Calling an API](#calling-an-api)
 * [Filtering by search query](#filtering-by-search-query)
-* [Aside: Authenticate an Angular App and Node API with Auth0](#aside--authenticate-an-angular-app-and-node-api-with-auth0)
+* [Aside: Authenticate an Angular App and Node API with Auth0](#aside-authenticate-an-angular-app-and-node-api-with-auth0)
 
 **Note:** The AngularJS code samples use AngularJS version 1.5.x.
 
