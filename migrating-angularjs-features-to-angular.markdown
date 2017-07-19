@@ -516,7 +516,7 @@ export class AppComponent implements OnInit {
 
 We need to import `Router` and `NavigationStart` from `@angular/router`. Next we need to make `private router: Router` available in our `constructor()` function.
 
-[Router.events](https://angular.io/docs/ts/latest/api/router/index/Event-type-alias.html) is an observable of route events. We'll filter for when the event is an instance of `NavigationStart`. Then we can subscribe and execute our desired functionality. Other navigation events can be found in the [Angular router event documentation](https://angular.io/docs/ts/latest/api/router/index/Event-type-alias.html).
+[Router.events](https://angular.io/api/router/Event) is an observable of route events. We'll filter for when the event is an instance of [`NavigationStart`](https://angular.io/api/router/NavigationStart). Then we can subscribe and execute our desired functionality. Other navigation events can be found in the [Angular router event documentation](https://angular.io/api/router/Event).
 
 **Note:** To learn about a great use-case, check out [Dynamic page titles in Angular with router events](https://toddmotto.com/dynamic-page-titles-angular-2-router-events). 
 
@@ -647,7 +647,7 @@ When this component is displayed, we should see a list of links to the current p
 
 _**Download Angular code samples:** [filtering](https://github.com/kmaida/migrating-angular-features-to-angular2/tree/master/filtering)_
 
-You may have heard about [Angular pipes](https://angular.io/docs/ts/latest/guide/pipes.html). Pipes transform displayed values within a template. In AngularJS, we use the pipe character (`|`) to do similar things with [filters](https://docs.angularjs.org/api/ng/filter/filter). However, **filters are _gone_ in Angular**.
+You may have heard about [Angular pipes](https://angular.io/guide/pipes). Pipes transform displayed values within a template. In AngularJS, we use the pipe character (`|`) to do similar things with [filters](https://docs.angularjs.org/api/ng/filter/filter). However, **filters are _gone_ in Angular**.
 
 Let's address the following scenario:
 
@@ -1098,4 +1098,4 @@ We've now discussed several common features of AngularJS apps and how to impleme
 * differ significantly from AngularJS implementation, OR
 * may not be documented as well as others.
 
-Hopefully this guide has helped you feel more comfortable in the Angular space. For the whole picture, the [docs are an excellent source of information](https://angular.io/docs/ts/latest/). Now let's go build!
+Hopefully this guide has helped you feel more comfortable in the Angular space. For the whole picture, the [docs are an excellent source of information](https://angular.io/guide/). Now let's go build!
