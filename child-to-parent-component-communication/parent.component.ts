@@ -13,4 +13,5 @@ export class ParentComponent {
   elementToggleHandler(e: boolean) {
     this.elementShow = e;
   }
+
 }

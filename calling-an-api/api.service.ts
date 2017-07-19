@@ -1,27 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class ApiService {
   private baseUrl = 'https://www.reddit.com/';
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
-  getFrontPage$(): Observable<Object[]> {
+  getFrontPage$(): Observable<{[key: string]: any}[]> {
     return this.http
       .get(`${this.baseUrl}.json`)
       .map(this.handleSuccess)
       .catch(this.handleError);
   }
 
-  private handleSuccess(res: Response) {
-    return res.json().data.children;
+  private handleSuccess(res: HttpResponse<any>) {
+    return res.data.children;
   }
 
-  private handleError(err: Response | any) {
+  private handleError(err: HttpErrorResponse | any) {
     let errorMsg = err.message || 'Unable to retrieve data';
     return Observable.throw(errorMsg);
   }

@@ -18,4 +18,5 @@ export class Cmpt2Component implements OnInit {
 
   ngOnInit() {
   }
+
 }

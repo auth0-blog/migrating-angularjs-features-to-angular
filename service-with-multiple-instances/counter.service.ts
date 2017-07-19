@@ -3,8 +3,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class CounterService {
-  count: number = 0;
-  private countSource = new BehaviorSubject<number>(this.count);
+  count = 0;
+  count$ = new BehaviorSubject<number>(this.count);
 
   inc() {
     this.count++;
@@ -19,11 +19,9 @@ export class CounterService {
   get getCount(): number {
     return this.count;
   }
-
-  count$ = this.countSource;
   
   private updateCountSbj(value) {
-    this.countSource.next(value);
+    this.count$.next(value);
   }
 
 }

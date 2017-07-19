@@ -5,9 +5,10 @@ import { Component, OnInit, Input } from '@angular/core';
   template: `<div>{{data.name}}</div>`
 })
 export class ChildComponent implements OnInit {
-  @Input() data: Object;
+  @Input() data: {[key: string]: any};
   
   ngOnInit() {
-  	 console.log('Data for child:', this.data);
+    console.log('Data for child:', this.data);
   }
+
 }

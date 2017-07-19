@@ -12,7 +12,7 @@ import { ApiService } from './api.service';
   `
 })
 export class RedditComponent implements OnInit {
-  redditFP: Object;
+  redditFP: {[key: string]: any}[];
   
   constructor(private redditApi: ApiService) { }
 

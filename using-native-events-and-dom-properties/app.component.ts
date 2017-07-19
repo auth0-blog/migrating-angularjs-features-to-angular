@@ -12,20 +12,21 @@ import { Observable } from 'rxjs/Rx';
 })
 export class AppComponent implements OnInit {
   minHeight: string;
-  private initWinHeight: number = 0;
+  private _initWinHeight: number = 0;
 
   ngOnInit() {
     Observable.fromEvent(window, 'resize')
       .debounceTime(200)
-      .subscribe(event => this.resizeFn(event)
+      .subscribe(event => this._resizeFn(event)
     );
     
-    this.initWinHeight = window.innerHeight;
-    this.resizeFn(null);
+    this._initWinHeight = window.innerHeight;
+    this._resizeFn(null);
   }
   
-  private resizeFn(e) {
-    let winHeight: number = e ? e.target.innerHeight : this.initWinHeight;
+  private _resizeFn(e) {
+    let winHeight: number = e ? e.target.innerHeight : this._initWinHeight;
     this.minHeight = `${winHeight}px`;
   }
+
 }

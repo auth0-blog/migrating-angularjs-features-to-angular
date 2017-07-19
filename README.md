@@ -1,6 +1,6 @@
-# Migrating Angular 1 Features to Angular 2
+# Migrating AngularJS Features to Angular
 
-This repository contains Angular 2 code samples for [Get Angular 1 Features in Angular 2](https://scotch.io/tutorials/get-angular-1-features-in-angular-2).
+This repository contains Angular code samples for [Get AngularJS Features in Angular](https://scotch.io/tutorials/get-angular-1-features-in-angular-2).
 
 It includes the following feature implementations:
 
@@ -12,4 +12,4 @@ It includes the following feature implementations:
 * [Router events](https://github.com/auth0-blog/migrating-angular-features-to-angular2/tree/master/router-events)
 * [Calling an API](https://github.com/auth0-blog/migrating-angular-features-to-angular2/tree/master/calling-an-api)
 * [Filtering](https://github.com/auth0-blog/migrating-angular-features-to-angular2/tree/master/filtering)
-* [User authentication with Auth0](https://github.com/auth0-blog/migrating-angular-features-to-angular2/tree/master/user-authentication-with-auth0)
+* [User authentication with Auth0](https://github.com/auth0-blog/angular-auth0-aside)

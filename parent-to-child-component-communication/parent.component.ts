@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   `
 })
 export class ParentComponent {
-  items: Object[] = [
+  items = [
 	  { name: 'Allosaurus' },
     { name: 'Brachiosaurus' },
     { name: 'Dionychus' },

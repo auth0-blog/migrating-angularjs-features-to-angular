@@ -15,7 +15,7 @@ import { FilterService } from './filter.service';
   `
 })
 export class ListComponent {
-  array: Object[] = [
+  array = [
     { id: 1, name: 'Jon Snow' },
     { id: 2, name: 'Sansa Stark' },
     { id: 3, name: 'Arya Stark' },
@@ -27,7 +27,7 @@ export class ListComponent {
     { id: 9, name: 'Samwell Tarly' },
     { id: 10, name: 'Sandor Clegane' }
   ];
-  filteredArray: Object[] = this.array;
+  filteredArray = this.array;
   query: string;
   
   constructor(private filter: FilterService) { }
@@ -35,8 +35,10 @@ export class ListComponent {
   search() {
     this.filteredArray = this.filter.search(this.array, this.query);
   }
+
   reset() {
     this.query = '';
     this.filteredArray = this.array;
   }
+
 }
