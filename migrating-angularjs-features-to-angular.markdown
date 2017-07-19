@@ -133,8 +133,6 @@ export class ParentComponent {
 }
 ```
 
-Our `items` property has a type annotation of `Object[]` signifying that it will be an array of objects.
-
 The selector for this component is `app-parent` because we need custom elements to be hyphenated as per the [W3C spec for custom elements](http://w3c.github.io/webcomponents/spec/custom/#prod-potentialcustomelementname) and [Angular Style Guide](https://angular.io/docs/ts/latest/guide/style-guide.html#!#02-07). Not doing so will result in errors; this is to prevent conflicts when W3C implements new tags in the future.
 
 The square brackets in `[data]` are one-way data binding punctuation. You can read more about [binding syntax in the Angular docs](https://angular.io/docs/ts/latest/guide/template-syntax.html#!#binding-syntax).
