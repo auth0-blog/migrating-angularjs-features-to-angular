@@ -1,4 +1,4 @@
-# Migrating AngularJS Features to Angular
+# How to Implement Popular AngularJS Features in Angular
 
 ## Introduction
 
@@ -20,13 +20,13 @@ We'll address several features that many real-world Angular apps require:
 
 * [Parent-to-child component communication](#passing-data-from-parent-to-child)
 * [Child-to-parent component communication](#passing-data-from-child-to-parent)
-* [Global communication](#global-communication-with-services)
-* [Bonus: Services with multiple instances](#angular-2-services-with-multiple-instances)
+* [Global communication with services](#global-communication-with-services)
+* [Bonus: Services with multiple instances](#angular-services-with-multiple-instances)
 * [Using native events and DOM properties](#using-native-events-and-dom-properties)
 * [Router events](#router-events)
 * [Calling an API](#calling-an-api)
 * [Filtering by search query](#filtering-by-search-query)
-* [Aside: Authenticate an Angular App and Node API with Auth0](#aside-authenticate-an-angular-app-and-node-api-with-auth0)
+* [Aside: Authenticate an Angular App and Node API with Auth0](#aside--authenticate-an-angular-app-and-node-api-with-auth0)
 
 **Note:** The AngularJS code samples use AngularJS version 1.5.x.
 
@@ -828,7 +828,7 @@ You'll need an [Auth0](https://auth0.com) account to manage authentication. You 
 1. Go to your [**Auth0 Dashboard**](https://manage.auth0.com/#/) and click the "[create a new client](https://manage.auth0.com/#/clients/create)" button.
 2. Name your new app and select "Single Page Web Applications".
 3. In the **Settings** for your new Auth0 client app, add `http://localhost:4200/callback` to the **Allowed Callback URLs** and `http://localhost:4200` to the **Allowed Origins (CORS)**.
-4. Scroll down to the bottom of the **Settings** section and click "Show Advanced Settings". Choose the **OAuth** tab and set the **JsonWebToken Signature Algorithm** to `RS256`.
+4. Scroll down to the bottom of the **Settings** section and click "Show Advanced Settings". Choose the **OAuth** tab and verify that the **JsonWebToken Signature Algorithm** is set to `RS256`.
 5. If you'd like, you can [set up some social connections](https://manage.auth0.com/#/connections/social). You can then enable them for your app in the **Client** options under the **Connections** tab. The example shown in the screenshot above utilizes username/password database, Facebook, Google, and Twitter. For production, make sure you set up your own social keys and do not leave social connections set to use Auth0 dev keys.
 
 ### Set Up an API
@@ -873,7 +873,7 @@ var jwtCheck = jwt({
       jwksRequestsPerMinute: 5,
       jwksUri: `https://${CLIENT_DOMAIN}/.well-known/jwks.json`
     }),
-    aud: AUTH0_AUDIENCE,
+    audience: AUTH0_AUDIENCE,
     issuer: `https://${CLIENT_DOMAIN}/`,
     algorithm: 'RS256'
 });
@@ -975,11 +975,12 @@ export class AuthService {
   }
 
   private _setSession(authResult, profile) {
+    const expTime = authResult.expiresIn * 1000 + Date.now();
     // Save session data and update login status subject
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('profile', JSON.stringify(profile));
-    localStorage.setItem('expires_at', authResult.expiresAt);
+    localStorage.setItem('expires_at', JSON.stringify(expTime));
     this.userProfile = profile;
     this.setLoggedIn(true);
   }
@@ -995,7 +996,7 @@ export class AuthService {
   }
 
   get authenticated(): boolean {
-    // Check if current time is past access token's expiration
+    // Check if current date is greater than expiration
     const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return Date.now() < expiresAt;
   }
